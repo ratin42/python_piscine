@@ -21,11 +21,27 @@ d = {
 	'Burton' : '1939',
 }
 
+def pSort(tab):
+	i = len(tab) - 1
+	while i > 0:
+		j = 0
+		while j < i - 1:
+			if d[tab[j + 1]] == d[tab[j]] and tab[j + 1] < tab[j]:
+				tab[j + 1], tab[j] = tab[j], tab[j + 1]
+			j += 1
+		i -= 1
+	return tab
+
 def mySort():
+	keyList = list()
 	YearSorted = dict()
+	y = 0
 	for i in sorted(d, key=d.get):
-		YearSorted[i] = d[i]
-	print(YearSorted)
+		keyList.append(i)
+		y += 1
+	keyList = pSort(keyList)
+	for i in range(len(keyList)):
+		print(keyList[i])
 
 if __name__ == '__main__':
 	mySort()
