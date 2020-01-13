@@ -69,6 +69,7 @@ def test_errors():
     try:
         elem = Elem()
         elem.add_content(1)
+        print("77777777777777777777777777777\n")
         raise(Exception("incorrect behaviour."))
     except Exception as e:
         assert isinstance(e, Elem.ValidationError)
